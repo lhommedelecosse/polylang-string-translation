@@ -22,6 +22,12 @@ function child_enqueue_styles() {
 
 }
 
+/**
+ * Polylang strings for translation
+ * Add strings not found in plugins by Polylang
+ * These strings will appeare under string translations
+ * pll_register_string( group, string to taranslate, text domain )
+ */
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
   add_action('init', function() {
