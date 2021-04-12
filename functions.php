@@ -31,8 +31,11 @@ function child_enqueue_styles() {
 add_action( 'wp_enqueue_scripts', 'child_enqueue_styles', 15 );
 
   add_action('init', function() {
-    pll_register_string('free_home_delivery', 'Free Home Delivery', 'WooCommerce Shipping Methods');
-    pll_register_string('paid_home_delivery', 'Paid Home Delivery', 'WooCommerce Shipping Methods');
-    pll_register_string('we_are_closed', 'We are closed', 'Store Hours');
-    pll_register_string('we_are_currently_closed', 'Sorry but we are currently closed for online orders. Please see our hours of operation and come back soon.', 'Store Hours');
-  });
+      if(function_exists('pll_register_string')) {
+        pll_register_string('free_home_delivery', 'Free Home Delivery', 'WooCommerce Shipping Methods');
+        pll_register_string('paid_home_delivery', 'Paid Home Delivery', 'WooCommerce Shipping Methods');
+        pll_register_string('we_are_closed', 'We are closed', 'Store Hours');
+        pll_register_string('we_are_currently_closed', 'Sorry but we are currently closed for online orders. Please see our hours of operation and come back soon.', 'Store Hours');
+    }
+  }
+);
